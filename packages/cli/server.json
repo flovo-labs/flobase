@@ -1,0 +1,46 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/specification/main/schema/server-manifest.json",
+  "name": "flobase-mcp",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) server for Flobase unified schema files",
+  "homepage": "https://github.com/flovo-labs/flobase",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flovo-labs/flobase.git"
+  },
+  "author": "Flobase Core Team",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "command": "npx",
+  "args": ["-y", "flobase-mcp"],
+  "capabilities": {
+    "tools": [
+      {
+        "name": "read_schema",
+        "description": "Read and parse a Flobase schema.yaml file into structured JSON with an exhaustive human-readable summary of models, fields, and relationships."
+      },
+      {
+        "name": "generate_er_diagram",
+        "description": "Deterministically generate a Mermaid.js Entity-Relationship diagram string representing models, field types, primary/foreign keys, and relational cardinality."
+      },
+      {
+        "name": "validate_schema",
+        "description": "Validate a Flobase YAML document against Zod schemas and relational reference integrity. Resiliently handles malformed YAML without crashing."
+      },
+      {
+        "name": "suggest_endpoints",
+        "description": "Derive suggested REST and GraphQL endpoints (CRUD and nested sub-resources) deterministically without external LLM calls."
+      }
+    ],
+    "resources": [
+      {
+        "uriTemplate": "flobase://{path}",
+        "name": "Flobase Document",
+        "description": "Access schema.yaml files discovered directly within the current active workspace",
+        "mimeType": "application/yaml"
+      }
+    ]
+  }
+}
