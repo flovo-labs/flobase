@@ -24,6 +24,10 @@ A unified schema-driven DSL for modern backend engineering. Define relational mo
 - [The Problem: Schema Drift](#the-problem-schema-drift)
 - [The Flobase Architecture](#the-flobase-architecture)
 - [Monorepo Packages](#monorepo-packages)
+- [Installation](#installation)
+  - [Global Installation (All Tools)](#1-global-installation-all-tools)
+  - [Local Project Dependency](#2-local-project-dependency)
+  - [Zero-Install via npx](#3-zero-install-via-npx-run-on-demand)
 - [Quick Start](#quick-start)
 - [Comprehensive Schema Specification](#comprehensive-schema-specification)
   - [Supported Data Types](#supported-data-types)
@@ -101,21 +105,74 @@ Flobase is distributed across three targeted packages:
 
 ---
 
-## Quick Start
+## Installation
 
-### 1. Installation
+Flobase provides modular packages for CLI execution, AI agent integration via MCP, and visual canvas editing. Choose the installation approach matching your workflow:
 
-Flobase can be executed on demand using `npx` or installed globally:
+### 1. Global Installation (All Tools)
+
+Install all components globally for instant terminal and editor access:
 
 ```bash
-# Global installation
+# Core CLI compiler & SDK
 npm install -g flobase
 
-# Or execute on demand
-npx flobase --help
+# Model Context Protocol server (AI integration)
+npm install -g flobase-mcp
+
+# Standalone Visual Editor server
+npm install -g flobase-editor
 ```
 
-### 2. Scaffold a Starter Project
+### 2. Local Project Dependency
+
+Add Flobase directly to your Node.js or TypeScript backend repository:
+
+```bash
+# Using npm
+npm install --save-dev flobase
+
+# Using pnpm
+pnpm add -D flobase
+
+# Using yarn
+yarn add -D flobase
+```
+
+Add convenience scripts to your `package.json`:
+
+```json
+{
+  "scripts": {
+    "schema:init": "flobase init",
+    "schema:build": "flobase build schema.yaml",
+    "schema:editor": "flobase editor schema.yaml"
+  }
+}
+```
+
+### 3. Zero-Install via npx (Run On-Demand)
+
+Run any Flobase utility without prior installation:
+
+```bash
+# Run CLI commands on-demand
+npx flobase init
+npx flobase build schema.yaml
+npx flobase editor schema.yaml
+
+# Run MCP server for agents
+npx -y flobase-mcp
+
+# Launch visual editor directly
+npx -y flobase-editor
+```
+
+---
+
+## Quick Start
+
+### 1. Scaffold a Starter Project
 
 Run `init` inside your project root to generate a starter `schema.yaml` manifest and configure VS Code autocomplete:
 
@@ -127,7 +184,7 @@ This creates:
 - `schema.yaml`: Sample architecture schema with models, relational fields, and CRUD endpoints.
 - `.vscode/settings.json`: Configures the JSON schema validator for real-time editor linting.
 
-### 3. Compile Target Artifacts
+### 2. Compile Target Artifacts
 
 Compile the YAML schema into standard output files:
 
@@ -141,6 +198,14 @@ output/
 |-- schema.sql       # Topological PostgreSQL DDL statements
 |-- openapi.yaml     # Validated OpenAPI 3.1 REST specification
 `-- ER_DIAGRAM.md    # Mermaid ER diagram markdown file
+```
+
+### 3. Launch Visual Canvas
+
+Open the interactive React Flow canvas to view and edit models visually:
+
+```bash
+flobase editor schema.yaml
 ```
 
 ---
