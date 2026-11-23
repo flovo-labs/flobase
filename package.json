@@ -1,0 +1,78 @@
+{
+  "name": "flobase",
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "description": "One YAML. ER diagram, Postgres DDL, and OpenAPI contract — deterministic, not AI-hallucinated.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "flobase": "./dist/bin.js",
+    "flobase-mcp": "./dist/bin.js"
+  },
+  "files": [
+    "dist",
+    "flobase.schema.json",
+    "server.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/bin.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "schema",
+    "openapi",
+    "postgres",
+    "er-diagram",
+    "cli",
+    "codegen"
+  ],
+  "author": "Sreeju <sreeju@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flovo-labs/flobase.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flovo-labs/flobase/issues"
+  },
+  "homepage": "https://github.com/flovo-labs/flobase#readme",
+  "dependencies": {
+    "@google/genai": "^3.6.1",
+    "@modelcontextprotocol/sdk": "^1.6.1",
+    "picocolors": "^1.1.1",
+    "yaml": "^2.7.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@apidevtools/swagger-parser": "^10.1.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.13.9",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^6.3.0",
+    "@vitest/coverage-v8": "^3.0.7",
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "node-sql-parser": "^5.3.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "reactflow": "^11.11.4",
+    "typescript": "^5.8.2",
+    "vite": "^8.3.8",
+    "vitest": "^3.0.7",
+    "zustand": "^5.1.0"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Flobase",
+  "description": "JSON Schema specification for Flobase unified schema files (schema.yaml)",
+  "type": "object",
+  "required": ["models"],
+  "properties": {
+    "version": {
+      "type": ["string", "number"],
+      "description": "Flobase specification version"
+    },
+    "name": {
+      "type": "string",
+      "description": "Application or schema name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Summary description of the schema"
+    },
+    "models": {
+      "type": "object",
+      "description": "Map of model definitions",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["fields"],
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "tableName": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": ["type"],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "string",
+                    "text",
+                    "int",
+                    "integer",
+                    "float",
+                    "decimal",
+                    "bool",
+                    "boolean",
+                    "datetime",
+                    "timestamp",
+                    "date",
+                    "time",
+                    "uuid",
+                    "json",
+                    "enum"
+                  ]
+                },
+                "primaryKey": { "type": "boolean" },
+                "primary": { "type": "boolean" },
+                "unique": { "type": "boolean" },
+                "nullable": { "type": "boolean" },
+                "required": { "type": "boolean" },
+                "default": {},
+                "description": { "type": "string" },
+                "references": { "type": "string" },
+                "enum": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              }
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": ["type", "model"],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["one-to-one", "one-to-many", "many-to-one", "many-to-many"]
+                },
+                "model": { "type": "string" },
+                "foreignKey": { "type": "string" },
+                "through": { "type": "string" },
+                "description": { "type": "string" }
+              }
+            }
+          },
+          "indexes": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                { "type": "string" },
+                { "type": "array", "items": { "type": "string" } }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "endpoints": {
+      "type": "array",
+      "description": "REST endpoints exposed by the API",
+      "items": {
+        "type": "object",
+        "required": ["method", "path"],
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"]
+          },
+          "path": { "type": "string" },
+          "summary": { "type": "string" },
+          "description": { "type": "string" },
+          "model": { "type": "string" },
+          "auth": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}
