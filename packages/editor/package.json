@@ -3,6 +3,15 @@
   "version": "0.1.0",
   "type": "module",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "server.ts",
+    "README.md",
+    "LICENSE"
+  ],
   "description": "Visual drag-and-drop canvas editor for Flobase schemas",
   "scripts": {
     "dev": "vite",
