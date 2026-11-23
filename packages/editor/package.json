@@ -2,6 +2,7 @@
   "name": "flobase-editor",
   "version": "0.1.0",
   "type": "module",
+  "license": "MIT",
   "description": "Visual drag-and-drop canvas editor for Flobase schemas",
   "scripts": {
     "dev": "vite",
