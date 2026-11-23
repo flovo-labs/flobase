@@ -1,0 +1,40 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schema.json",
+  "name": "flobase-mcp",
+  "version": "0.1.0",
+  "description": "Model Context Protocol (MCP) server for Flobase unified schema files",
+  "homepage": "https://github.com/flovo-labs/flobase",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flovo-labs/flobase.git"
+  },
+  "author": "Flobase Team",
+  "license": "MIT",
+  "command": "npx",
+  "args": ["-y", "flobase-mcp"],
+  "tools": [
+    {
+      "name": "read_schema",
+      "description": "Read and parse a Flobase schema.yaml file into structured JSON with an exhaustive human-readable summary of models, fields, and relationships."
+    },
+    {
+      "name": "validate_schema",
+      "description": "Validate a Flobase YAML document against Zod schemas and relational reference integrity. Resiliently handles malformed YAML without crashing."
+    },
+    {
+      "name": "generate_er_diagram",
+      "description": "Generate a Mermaid.js Entity-Relationship diagram deterministically from a Flobase schema."
+    },
+    {
+      "name": "generate_sql",
+      "description": "Generate PostgreSQL DDL deterministically from a Flobase schema."
+    }
+  ],
+  "resources": [
+    {
+      "uriTemplate": "flobase://{path}",
+      "name": "Flobase Document",
+      "description": "Access active Flobase schema files in the current workspace context."
+    }
+  ]
+}
