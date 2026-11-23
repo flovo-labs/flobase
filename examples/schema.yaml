@@ -1,0 +1,124 @@
+version: "1.0"
+name: "EcommerceApp"
+description: "Sample schema for e-commerce store with users, orders, and products"
+
+models:
+  User:
+    tableName: "users"
+    description: "System user account"
+    fields:
+      id:
+        type: uuid
+        primaryKey: true
+        description: "Primary key"
+      email:
+        type: string
+        unique: true
+        required: true
+        description: "User email address"
+      name:
+        type: string
+        required: true
+      role:
+        type: enum
+        enum: ["customer", "admin", "vendor"]
+        default: "customer"
+      createdAt:
+        type: datetime
+        required: true
+    relationships:
+      orders:
+        type: one-to-many
+        model: Order
+        foreignKey: userId
+
+  Order:
+    tableName: "orders"
+    description: "Customer orders"
+    fields:
+      id:
+        type: uuid
+        primaryKey: true
+      userId:
+        type: uuid
+        required: true
+        references: "User.id"
+      status:
+        type: enum
+        enum: ["pending", "processing", "shipped", "delivered", "cancelled"]
+        default: "pending"
+      totalAmount:
+        type: decimal
+        required: true
+      createdAt:
+        type: datetime
+        required: true
+    relationships:
+      user:
+        type: many-to-one
+        model: User
+        foreignKey: userId
+      items:
+        type: one-to-many
+        model: OrderItem
+        foreignKey: orderId
+
+  OrderItem:
+    tableName: "order_items"
+    description: "Line items in an order"
+    fields:
+      id:
+        type: uuid
+        primaryKey: true
+      orderId:
+        type: uuid
+        required: true
+        references: "Order.id"
+      productId:
+        type: uuid
+        required: true
+        references: "Product.id"
+      quantity:
+        type: int
+        required: true
+        default: 1
+      unitPrice:
+        type: decimal
+        required: true
+    relationships:
+      order:
+        type: many-to-one
+        model: Order
+        foreignKey: orderId
+      product:
+        type: many-to-one
+        model: Product
+        foreignKey: productId
+
+  Product:
+    tableName: "products"
+    description: "Store product inventory"
+    fields:
+      id:
+        type: uuid
+        primaryKey: true
+      sku:
+        type: string
+        unique: true
+        required: true
+      title:
+        type: string
+        required: true
+      price:
+        type: decimal
+        required: true
+      inventory:
+        type: int
+        default: 0
+
+endpoints:
+  - method: GET
+    path: /api/orders/{id}/tracking
+    summary: "Get live order tracking status"
+    model: Order
+    auth: true
