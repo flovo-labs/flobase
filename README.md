@@ -10,7 +10,9 @@ A unified schema-driven DSL for modern backend engineering. Define relational mo
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/flobase"><img src="https://img.shields.io/npm/v/flobase.svg?color=b8f34a&labelColor=10120f" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/flobase"><img src="https://img.shields.io/npm/v/flobase.svg?color=b8f34a&labelColor=10120f" alt="npm version flobase" /></a>
+  <a href="https://www.npmjs.com/package/flobase-mcp"><img src="https://img.shields.io/npm/v/flobase-mcp.svg?color=b8f34a&labelColor=10120f" alt="npm version flobase-mcp" /></a>
+  <a href="https://www.npmjs.com/package/flobase-editor"><img src="https://img.shields.io/npm/v/flobase-editor.svg?color=b8f34a&labelColor=10120f" alt="npm version flobase-editor" /></a>
   <a href="https://github.com/flovo-labs/flobase/actions"><img src="https://img.shields.io/github/actions/workflow/status/flovo-labs/flobase/ci.yml?branch=main&labelColor=10120f" alt="Build Status" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-b8f34a.svg?labelColor=10120f" alt="License: MIT" /></a>
 </p>
@@ -91,11 +93,11 @@ The system operates across three core boundaries:
 
 Flobase is distributed across three targeted packages:
 
-| Package | Purpose | Installation |
-| :--- | :--- | :--- |
-| **`flobase`** | Core command-line compiler, validator, and Node.js SDK | `npm install -g flobase` or `npx flobase` |
-| **`flobase-mcp`** | Model Context Protocol server exposing deterministic tools to Cursor, Windsurf, and Claude | `npx -y flobase-mcp` |
-| **`flobase-editor`** | Visual drag-and-drop canvas application built with React Flow | Bundled with CLI (`flobase editor`) |
+| Package | Purpose | Version | Installation |
+| :--- | :--- | :--- | :--- |
+| **`flobase`** | Core command-line compiler, validator, and Node.js SDK | `0.1.0` | `npm install -g flobase` or `npx flobase` |
+| **`flobase-mcp`** | Model Context Protocol server exposing deterministic tools to Cursor, Windsurf, and Claude | `0.1.0` | `npx -y flobase-mcp` |
+| **`flobase-editor`** | Visual drag-and-drop canvas application built with React Flow | `0.1.0` | `npx flobase-editor` or `flobase editor` |
 
 ---
 
