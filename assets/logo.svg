@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none">
+  <!-- Flobase Mark (Stylized F & Layered Database Stack) -->
+  <g transform="translate(4, 4) scale(0.625)">
+    <!-- Top Stack / Database Layer -->
+    <rect x="10" y="10" width="44" height="10" rx="4" fill="#b8f34a"/>
+    <!-- Middle Arm -->
+    <rect x="10" y="26" width="32" height="9" rx="3.5" fill="#b8f34a"/>
+    <!-- Vertical Pillar forming F spine -->
+    <rect x="10" y="10" width="10" height="44" rx="4" fill="#b8f34a"/>
+    <!-- Bottom Foundation / Base Layer -->
+    <rect x="10" y="45" width="22" height="9" rx="3.5" fill="#8fca32"/>
+    <!-- Relational anchor -->
+    <circle cx="48" cy="49" r="4.5" fill="#b8f34a"/>
+    <path d="M32 49.5H43.5" stroke="#b8f34a" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="52" y="32" font-family="Manrope, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="24" letter-spacing="-0.6px" fill="#f4f5ef">flo<tspan fill="#b8f34a">base</tspan></text>
+</svg>

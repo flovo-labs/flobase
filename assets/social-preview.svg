@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="32%" r="58%">
+      <stop offset="0%" stop-color="#b8f34a" stop-opacity="0.14" />
+      <stop offset="100%" stop-color="#10120f" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#262f25" stroke-width="0.75" stroke-opacity="0.7"/>
+    </pattern>
+  </defs>
+
+  <!-- Deep Obsidian Technical Background -->
+  <rect width="1280" height="640" fill="#10120f"/>
+  <rect width="1280" height="640" fill="url(#grid)" />
+  <rect width="1280" height="640" fill="url(#glow)"/>
+
+  <!-- Center Card Container -->
+  <g transform="translate(240, 80)">
+    <!-- Main Surface -->
+    <rect width="800" height="480" rx="24" fill="#151814" stroke="#262f25" stroke-width="2"/>
+
+    <!-- Category Badge -->
+    <g transform="translate(285, 42)">
+      <rect width="230" height="34" rx="17" fill="#1c221b" stroke="#262f25"/>
+      <circle cx="18" cy="17" r="4.5" fill="#b8f34a"/>
+      <text x="32" y="22" font-family="Manrope, system-ui, sans-serif" font-size="12" font-weight="700" fill="#9ba697" letter-spacing="0.6px">OPEN-SOURCE DATA LAYER</text>
+    </g>
+
+    <!-- Center Icon Mark -->
+    <g transform="translate(345, 105) scale(1.7)">
+      <!-- Top Stack / Database Layer -->
+      <rect x="10" y="10" width="44" height="10" rx="4" fill="#b8f34a"/>
+      <!-- Middle Arm -->
+      <rect x="10" y="26" width="32" height="9" rx="3.5" fill="#b8f34a"/>
+      <!-- Vertical Pillar forming F spine -->
+      <rect x="10" y="10" width="10" height="44" rx="4" fill="#b8f34a"/>
+      <!-- Bottom Foundation / Base Layer -->
+      <rect x="10" y="45" width="22" height="9" rx="3.5" fill="#8fca32"/>
+      <!-- Relational anchor -->
+      <circle cx="48" cy="49" r="4.5" fill="#b8f34a"/>
+      <path d="M32 49.5H43.5" stroke="#b8f34a" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Main Title: Flobase -->
+    <text x="400" y="260" font-family="Manrope, system-ui, sans-serif" font-size="46" font-weight="800" fill="#f4f5ef" text-anchor="middle" letter-spacing="-1px">
+      flo<tspan fill="#b8f34a">base</tspan>
+    </text>
+
+    <!-- Subtitle: One YAML. ER Diagram, Postgres DDL, and OpenAPI. -->
+    <text x="400" y="305" font-family="Manrope, system-ui, sans-serif" font-size="20" font-weight="600" fill="#9ba697" text-anchor="middle" letter-spacing="-0.2px">
+      One YAML. ER Diagram, Postgres DDL, and OpenAPI.
+    </text>
+
+    <!-- Code / CLI Pill -->
+    <g transform="translate(260, 360)">
+      <rect width="280" height="46" rx="8" fill="#10120f" stroke="#262f25"/>
+      <text x="24" y="28" font-family="DM Mono, monospace" font-size="15" fill="#b8f34a">$ npx flobase build schema.yaml</text>
+    </g>
+  </g>
+</svg>
